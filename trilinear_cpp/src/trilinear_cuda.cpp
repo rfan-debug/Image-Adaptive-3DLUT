@@ -1,6 +1,7 @@
 #include "trilinear_kernel.h"
 #include <torch/extension.h>
 #include <ATen/ATen.h>
+#include <ATen/cuda/CUDAContext.h>
 
 int trilinear_forward_cuda(torch::Tensor lut, torch::Tensor image, torch::Tensor output,
                            int lut_dim, int shift, float binsize, int width, int height, int batch)
