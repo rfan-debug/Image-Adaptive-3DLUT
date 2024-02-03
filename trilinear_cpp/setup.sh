@@ -1,1 +1,7 @@
-export CUDA_HOME=/usr/local/cuda-10.2 && python3 setup.py install
+if [ -z "$CUDA_HOME" ]; then
+  echo "CUDA_HOME=$CUDA_HOME"
+  python3 setup.py install
+else
+  echo "CUDA_HOME undefined, please define CUDA_HOME like /usr/local/cuda-<version>"
+  exit 1
+fi
